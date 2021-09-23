@@ -8,6 +8,7 @@ import userRouter from "./routes/user.js";
 dotenv.config({ path: '.env' })
 const app = express();
 app.use(express.json({ limit: '30mb', extended: true }));
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
