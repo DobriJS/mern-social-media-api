@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
 
-dotenv.config({ path: '.env' })
+dotenv.config();
 const app = express();
 
 app.use(express.json({ limit: '30mb', extended: true }));
