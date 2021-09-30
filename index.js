@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 	res.send("Hello to FEED");
 });
 
-const URL = process.env.CONNECTION_URL;
+const URL = 'mongodb://DobriJS:tGwe7DhTR11xoIpA@cluster0-shard-00-00.myt24.mongodb.net:27017,cluster0-shard-00-01.myt24.mongodb.net:27017,cluster0-shard-00-02.myt24.mongodb.net:27017/mern-social?ssl=true&replicaSet=atlas-v5slnn-shard-0&authSource=admin&retryWrites=true&w=majority';
 const PORT = 4000;
 
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
