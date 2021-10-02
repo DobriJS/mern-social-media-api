@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 	res.send("Hello to FEED");
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 80;
 const URL = process.env.CONNECTION_URL;
 
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
