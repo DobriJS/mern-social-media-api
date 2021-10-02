@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 4000;
-console.log(process.env.DATABASE_URL);
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const URL = process.env.DATABASE_URL;
+mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
 .catch((error) => console.log(`${error} did not connect`));
