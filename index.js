@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
 
-dotenv.config()
+dotenv.config({ path: '.env'})
 const app = express();
 
 app.use(express.json({ limit: '30mb', extended: true }));
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 const PORT = 80;
-const URL = process.env.CONNECTION_URL;
+const URL = process.env.URL;
 
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
