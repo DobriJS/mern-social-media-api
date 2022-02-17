@@ -7,7 +7,7 @@ import {
   updatePost,
   deletePost,
   likePost,
-  commentPost,
+  commentPost
 } from '../controllers/posts.js';
 import auth from '../middleware/auth.js';
 

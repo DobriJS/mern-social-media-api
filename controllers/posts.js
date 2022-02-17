@@ -30,7 +30,7 @@ export const getPosts = async (req, res) => {
     res.status(200).json({
       data: posts,
       currentPage: Number(page),
-      numberOfPages: Math.ceil(total / LIMIT),
+      numberOfPages: Math.ceil(total / LIMIT)
     });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -43,7 +43,7 @@ export const getPostsBySearch = async (req, res) => {
   try {
     const title = new RegExp(searchQuery, 'i');
     const posts = await PostMessage.find({
-      $or: [{ title }, { tags: { $in: tags.split(',') } }],
+      $or: [{ title }, { tags: { $in: tags.split(',') } }]
     });
     res.json({ data: posts });
   } catch (error) {
@@ -57,7 +57,7 @@ export const createPost = async (req, res) => {
   const newPostMessage = new PostMessage({
     ...post,
     creator: req.userId,
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toISOString()
   });
 
   try {
@@ -84,10 +84,10 @@ export const updatePost = async (req, res) => {
         selectedFile: selectedFile,
         creator,
         tags,
-        _id,
+        _id
       },
       {
-        new: true,
+        new: true
       }
     );
 
@@ -127,7 +127,7 @@ export const likePost = async (req, res) => {
   }
 
   const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, {
-    new: true,
+    new: true
   });
 
   res.json(updatedPost);
@@ -142,7 +142,7 @@ export const commentPost = async (req, res) => {
   post.comments.push(value);
 
   const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
-    new: true,
+    new: true
   });
 
   return res.status(200).json(updatedPost);
